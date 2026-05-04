@@ -1,0 +1,888 @@
+{% extends "templates/web.html" %}
+
+{% block title %}Hackathon - Home{% endblock %}
+
+{% block page_content %}
+<div class="index-page">
+    <!-- Top Header with Logos -->
+    <header class="top-header">
+        <div class="header-container">
+            <div class="logo-item">
+                <img src="/files/TRIP.png" alt="TRIP" class="logo-img trip-logo">
+            </div>
+            <div class="logo-item center">
+                <img src="/files/GJU LOGO.JPG" alt="GJU" class="logo-img gju-logo">
+            </div>
+            <div class="logo-item">
+                <img src="/files/BOJ.jpg" alt="Bank of Jordan" class="logo-img boj-logo">
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">HACKATHON<br>CHALLENGE<br>ALERT!</h1>
+                <a href="/hackathon/login" class="btn-get-started">
+                    GET STARTED
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M6 12L10 8L6 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+
+                <div class="about-section">
+                    <h2 class="about-title">ABOUT</h2>
+                    <div class="about-underline"></div>
+                    <p class="about-text">
+                        Customer experience is one of the biggest challenges facing banks in Jordan — and in a youth-driven economy, the pressure is even higher.
+                    </p>
+                    <p class="about-text">
+                        Bring your creativity, tech skills, and bold ideas to answer:
+                    </p>
+                    <p class="about-challenge">
+                        <strong>How might we reimagine the Bank of Jordan's retail customer experience — across digital and physical touch points — to make banking smoother, faster, and more engaging for everyone?</strong>
+                    </p>
+                </div>
+            </div>
+            <div class="hero-image">
+                <!-- Geometric shapes background (first, behind) -->
+                <img src="/files/2.png" alt="Geometric Shapes" class="geometric-bg" style="z-index: 200;">
+                <!-- Person image (second, in front) -->
+                <img src="/files/1.png" alt="Professional" class="person-image" style="z-index: 100;">
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <section class="cta-banner">
+        <div class="cta-container">
+            <h2 class="cta-title">NOW IT'S YOUR TURN TO SHAKE<br>THINGS UP.</h2>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories-section">
+        <div class="categories-container">
+            <div class="geometric-overlay"></div>
+        </div>
+    </section>
+
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <div class="timeline-container">
+            <h2 class="section-title timeline-title">HACKATHON <span class="awards-gray">TIMELINE</span></h2>
+            <p class="timeline-intro">
+                Mark your calendar and follow the key milestones of the hackathon journey.
+            </p>
+            <div class="timeline-grid">
+                <div class="timeline-card">
+                    <span class="timeline-label">Announcement Date</span>
+                    <strong class="timeline-date">May 4th</strong>
+                </div>
+                <div class="timeline-card">
+                    <span class="timeline-label">Application DL</span>
+                    <strong class="timeline-date">May 12th</strong>
+                </div>
+                <div class="timeline-card">
+                    <span class="timeline-label">Pivot Day</span>
+                    <strong class="timeline-date">May 20th</strong>
+                </div>
+                <div class="timeline-card">
+                    <span class="timeline-label">Demo Day</span>
+                    <strong class="timeline-date">June 4th</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section class="awards-section">
+        <div class="awards-container">
+            <h2 class="section-title">HACKATHON <span class="awards-gray">AWARDS</span></h2>
+            
+            <div class="awards-grid">
+                <!-- 2nd Place - MEDIUM HEIGHT -->
+                <div class="award-card award-card-second">
+                    <div class="award-image-wrapper">
+                        <img src="/files/second.png" alt="2nd Place" class="award-image">
+                    </div>
+                    <ul class="award-list">
+                        <li>Internships Mihnati 2026</li>
+                        <li>Pre approved Xceed account with 150 JD</li>
+                    </ul>
+                </div>
+
+                <!-- 1st Place - HIGHEST -->
+                <div class="award-card award-card-first">
+                    <div class="award-image-wrapper">
+                        <img src="/files/1st.png" alt="1st Place" class="award-image">
+                    </div>
+                    <ul class="award-list">
+                        <li>Implementation opportunity,</li>
+                        <li>Internship in Mihnati 2026</li>
+                        <li>Pre approved Xceed account with 200 JD</li>
+                    </ul>
+                </div>
+
+                <!-- 3rd Place - LOWEST -->
+                <div class="award-card award-card-third">
+                    <div class="award-image-wrapper">
+                        <img src="/files/third.png" alt="3rd Place" class="award-image">
+                    </div>
+                    <ul class="award-list">
+                        <li>Pre approved Xceed account with 100 JD</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Participation Banner -->
+    <section class="participation-banner">
+        <p style="margin-bottom: 0px;">ALL PARTICIPATED STUDENTS WILL GET CERTIFICATE OF PARTICIPATION</p>
+    </section>
+
+
+
+    <!-- Inquiry Section -->
+    <section class="inquiry-section">
+        <div class="inquiry-container">
+            <h2 class="section-title inquiry-title">HAVE <span class="awards-gray">QUESTIONS?</span></h2>
+            <p class="inquiry-text">
+                For inquiries or more information about the hackathon, please contact us at
+                <a href="mailto:saeed.madhieh@gju.edu.jo" class="inquiry-email">saeed.madhieh@gju.edu.jo</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta">
+        <div class="final-cta-container">
+            <div class="final-cta-content">
+                <p class="final-cta-text">
+                    THINK BEYOND THE USUAL. THINK SMART. THINK OUT OF THE BOX.<br>
+                    LET'S CREATE THE FUTURE OF BANKING TOGETHER.
+                </p>
+            </div>
+            <a href="/hackathon/login" class="btn-get-started-dark">
+                GET STARTED
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M6 12L10 8L6 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="xceed-brand">
+                <img src="/files/xceed327618.png" alt="XCEED - حساب الشباب" class="xceed-logo">
+            </div>
+        </div>
+        
+        <!-- Focus Solutions Footer -->
+        <div class="focus-footer">
+            <img src="/files/Focus-Logo.png" alt="Focus Solutions" class="focus-logo">
+            <p class="focus-copyright">
+                Powered by <a href="https://focuskm.com/" target="_blank" class="focus-link">Focus Solutions</a> — © 2026. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+<style>
+@font-face {
+    font-family: 'ScalaSansPro';
+    src: url('/files/ScalaSansPro-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ScalaSansPro';
+    src: url('/files/ScalaSansPro-Bold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ScalaSansPro';
+    src: url('/files/ScalaSansPro-Italic.otf') format('opentype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'ScalaSansPro', Arial, 'Segoe UI', sans-serif;
+    background: #ffffff;
+    overflow-x: hidden;
+}
+
+/* Header */
+.top-header {
+    background: #ffffff;
+}
+
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-item.center {
+    flex: 1;
+}
+
+.logo-img {
+    max-height: 100px;
+    width: auto;
+    object-fit: contain;
+}
+
+.trip-logo {
+    max-height: 130px;
+}
+
+.gju-logo {
+    max-height: 130px;
+}
+
+.boj-logo {
+    max-height: 130px;
+}
+
+/* Hero Section */
+.hero-section {
+    background: #ffffff;
+}
+
+.hero-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.hero-title {
+    font-size: 64px;
+    font-weight: 900;
+    color: #000;
+    line-height: 1.1;
+    margin-bottom: 30px;
+}
+
+.btn-get-started,
+.btn-get-started-dark {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    background: #2196F3;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    margin-bottom: 0;
+}
+
+.btn-get-started:hover,
+.btn-get-started-dark:hover {
+    background: #1976D2;
+    color: white;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3);
+}
+
+.btn-get-started-dark {
+    background: #1a1a1a;
+}
+
+.btn-get-started-dark:hover {
+    background: #000;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.about-section {
+    max-width: 600px;
+}
+
+.about-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.about-underline {
+    width: 120px;
+    height: 3px;
+    background: #000;
+    margin-bottom: 25px;
+}
+
+.about-text {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.about-challenge {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.hero-image {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    isolation: isolate;
+}
+
+.geometric-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.person-image {
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    transform: translateX(50%);
+    height: 90%;
+    width: auto;
+    object-fit: contain;
+    z-index: 100;
+    pointer-events: none;
+}
+
+/* CTA Banner */
+.cta-banner {
+    background: #ffffff;
+}
+
+.cta-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.cta-title {
+    font-size: 48px;
+    font-weight: 700;
+    color: #000;
+    line-height: 1.2;
+}
+
+/* Categories Section */
+.categories-section {
+    background-image: url('/files/themes.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 80px 40px;
+    position: relative;
+    overflow: hidden;
+    height: 400px;
+}
+
+.geometric-overlay {
+    position: absolute;
+    right: -100px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 400px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.05);
+    clip-path: polygon(20% 0%, 100% 20%, 80% 100%, 0% 80%);
+}
+
+.categories-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* Timeline Section */
+.timeline-section {
+    padding: 60px 40px;
+    background: #ffffff;
+}
+
+.timeline-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.timeline-title {
+    /* margin-bottom: 15px; */
+    padding-bottom: 0;
+}
+
+.timeline-intro {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+    margin: 0 auto 35px;
+    max-width: 650px;
+}
+
+.timeline-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.timeline-card {
+    background: #f5f5f5;
+    border-top: 4px solid #2196F3;
+    padding: 25px 18px;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s;
+}
+
+.timeline-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(33, 150, 243, 0.18);
+}
+
+.timeline-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 10px;
+}
+
+.timeline-date {
+    display: block;
+    font-size: 26px;
+    font-weight: 900;
+    color: #000;
+    line-height: 1.2;
+}
+
+/* Awards Section */
+.awards-section {
+    padding: 60px 40px;
+    background: #f5f5f5;
+}
+
+.awards-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 42px;
+    font-weight: 700;
+    color: #000;
+    text-align: center;
+    /* margin-bottom: 60px; */
+    padding-bottom: 50px;
+}
+
+.awards-gray {
+    color: #999;
+}
+
+.awards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    align-items: flex-end;
+}
+
+.award-card {
+    text-align: center;
+}
+
+/* Stepped elevation for awards */
+.award-card-first {
+    transform: translateY(-40px);
+}
+
+.award-card-second {
+    transform: translateY(-20px);
+}
+
+.award-card-third {
+    transform: translateY(0px);
+}
+
+.award-image-wrapper {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.award-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.award-list {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    font-weight: bold;
+}
+
+.award-list li {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.award-list li::before {
+    content: "• ";
+    color: #2196F3;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+/* Participation Banner */
+.participation-banner {
+    background: #1a1a1a;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+
+
+/* Inquiry Section */
+.inquiry-section {
+    padding: 55px 40px;
+    background: #ffffff;
+}
+
+.inquiry-container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.inquiry-title {
+    padding-bottom: 20px;
+}
+
+.inquiry-text {
+    font-size: 20px;
+    line-height: 1.7;
+    color: #555;
+    margin: 0 auto;
+    max-width: 720px;
+}
+
+.inquiry-email {
+    color: #2196F3;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.3s;
+}
+
+.inquiry-email:hover {
+    color: #1976D2;
+    text-decoration: underline;
+}
+
+/* Final CTA */
+.final-cta {
+    background: linear-gradient(135deg, #1565C0, #1976D2);
+    padding: 50px 40px;
+}
+
+.final-cta-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+.final-cta-text {
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.5;
+    max-width: 800px;
+}
+
+/* Footer */
+.footer {
+    background: #ffffff;
+    padding: 5px;
+    text-align: center;
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.xceed-brand {
+    display: inline-block;
+}
+
+.xceed-logo {
+    max-height: 100px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Focus Solutions Footer */
+.focus-footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-top: 1px solid #e0e0e0;
+    margin-top: 20px;
+}
+
+.focus-logo {
+    height: 30px;
+    width: auto;
+    padding-left: 10px;
+}
+
+.focus-copyright {
+    margin: 0;
+    padding-right: 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+.focus-link {
+    color: #2196F3;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.focus-link:hover {
+    color: #1976D2;
+    text-decoration: underline;
+}
+
+.web-footer{
+    padding: 0px;
+    min-height: 0px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .focus-footer {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .focus-logo,
+    .focus-copyright {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    
+    .focus-copyright {
+        font-size: 12px;
+    }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-image {
+        height: 500px;
+        margin-top: 40px;
+    }
+    
+    .person-image {
+        height: 85%;
+        z-index: 100;
+    }
+    
+    .timeline-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .awards-grid {
+        grid-template-columns: 1fr;
+        align-items: center;
+    }
+    
+    .award-card-first,
+    .award-card-second,
+    .award-card-third {
+        transform: translateY(0);
+    }
+    
+    .final-cta-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .logo-img {
+        max-height: 70px;
+    }
+    
+    .trip-logo {
+        max-height: 65px;
+    }
+    
+    .gju-logo {
+        max-height: 85px;
+    }
+    
+    .boj-logo {
+        max-height: 70px;
+    }
+    
+    .hero-title {
+        font-size: 42px;
+    }
+    
+    .hero-image {
+        height: 400px;
+    }
+    
+    .person-image {
+        height: 80%;
+        z-index: 100;
+    }
+    
+    .about-title {
+        font-size: 28px;
+    }
+    
+    .cta-title {
+        font-size: 32px;
+    }
+    
+    .section-title {
+        font-size: 32px;
+    }
+    
+    .timeline-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .timeline-date {
+        font-size: 24px;
+    }
+    
+    .inquiry-text {
+        font-size: 18px;
+    }
+    
+    .final-cta-text {
+        font-size: 18px;
+    }
+    
+    .award-image-wrapper {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .xceed-logo {
+        max-height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section,
+    .cta-banner,
+    .categories-section,
+    .timeline-section,
+    .inquiry-section,
+    .awards-section,
+    .final-cta {
+        padding: 40px 20px;
+    }
+    
+    .hero-title {
+        font-size: 36px;
+    }
+    
+    .hero-image {
+        height: 350px;
+    }
+    
+    .person-image {
+        height: 75%;
+        z-index: 100;
+    }
+    
+    .cta-title {
+        font-size: 28px;
+    }
+    
+    .award-image-wrapper {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .xceed-logo {
+        max-height: 50px;
+    }
+}
+</style>
+{% endblock %}

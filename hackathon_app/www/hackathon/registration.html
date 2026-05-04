@@ -1,0 +1,1153 @@
+{% extends "templates/web.html" %}
+
+{% block title %}Registration - Hackathon{% endblock %}
+
+{% block page_content %}
+<div class="registration-page">
+    <!-- Top Header with Logos -->
+    <header class="top-header">
+        <div class="header-container">
+            <div class="logo-item">
+                <img src="/files/TRIP.png" alt="TRIP" class="logo-img trip-logo">
+            </div>
+            <div class="logo-item center">
+                <img src="/files/GJU LOGO.JPG" alt="GJU" class="logo-img gju-logo">
+            </div>
+            <div class="logo-item">
+                <img src="/files/BOJ.jpg" alt="Bank of Jordan" class="logo-img boj-logo">
+            </div>
+        </div>
+    </header>
+
+    <div class="reg-container">
+        <h1 class="form-title">Application</h1>
+        <p class="form-subtitle">Complete your hackathon application</p>
+
+        <form id="registrationForm" class="registration-form">
+            <div class="member-section">
+                <div class="form-row">
+                    <label class="form-label">Student name *</label>
+                    <input type="text" name="student_name" id="student_name" placeholder="John Doe" required>
+                </div>
+
+                <div class="form-row">
+                    <label class="form-label">Academic year *</label>
+                    <input type="text" name="academic_year" placeholder="Academic year" required>
+                </div>
+
+                <div class="form-row">
+                    <label class="form-label">University ID *</label>
+                    <input type="text" name="university_id" placeholder="University ID" required>
+                </div>
+
+                <div class="form-row">
+                    <label class="form-label">Major *</label>
+                    <input type="text" name="major" placeholder="Major" required>
+                </div>
+
+                <div class="form-row">
+                    <label class="form-label">Solution name *</label>
+                    <input type="text" name="solution_name" placeholder="Solution name" required>
+                </div>
+
+                <div class="form-row">
+                    <label class="form-label">Solution category *</label>
+                    <div class="select-wrapper">
+                        <select name="solution_category" required>
+                            <option value="">Select solution category</option>
+                            <option value="Human-Centered Branch & Digital Customer Experience">Human-Centered Branch & Digital Customer Experience</option>
+                            <option value="AI for Smarter Banking Experiences">AI for Smarter Banking Experiences</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row full-width">
+                    <label class="form-label">The problem understanding *</label>
+                    <textarea name="the_problem" rows="5" placeholder="Type the problem understanding" required></textarea>
+                </div>
+
+                <div class="form-row full-width">
+                    <label class="form-label">Solution overview *</label>
+                    <textarea name="solution" rows="5" placeholder="Type your solution" required></textarea>
+                </div>
+
+                <div class="form-row full-width">
+                    <label class="form-label">Upload attachment *</label>
+                    <div class="file-upload-wrapper">
+                        <div class="file-drop-area" id="fileDropArea">
+                            <svg class="upload-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                            <p class="file-message">Drag & Drop here or <span class="browse-link">Browse</span> to upload files</p>
+                            <p class="file-info">Supported formats: PPT, PPTX, PDF, MP4, AVI, MOV (Max 10MB each) - Maximum 3 files - Required</p>
+                            <input type="file" id="fileInput" name="attachment" accept=".ppt,.pptx,.pdf,.mp4,.avi,.mov,.wmv,.mkv" multiple style="display: none;">
+                        </div>
+                        <div class="file-preview-list" id="filePreviewList"></div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="xceed-brand">
+                <img src="/files/xceed327618.png" alt="XCEED - حساب الشباب" class="xceed-logo">
+            </div>
+        </div>
+        
+        <!-- Focus Solutions Footer -->
+        <div class="focus-footer">
+            <img src="/files/Focus-Logo.png" alt="Focus Solutions" class="focus-logo">
+            <p class="focus-copyright">
+                Powered by <a href="https://focuskm.com/" target="_blank" class="focus-link">Focus Solutions</a> — © 2026. All rights reserved.
+            </p>
+        </div>
+    </footer>
+</div>
+
+<style>
+@font-face {
+    font-family: 'ScalaSansPro';
+    src: url('/files/ScalaSansPro-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ScalaSansPro';
+    src: url('/files/ScalaSansPro-Bold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ScalaSansPro';
+    src: url('/files/ScalaSansPro-Italic.otf') format('opentype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'ScalaSansPro', Arial, 'Segoe UI', sans-serif;
+    background: #ffffff;
+}
+
+.registration-page {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+}
+
+/* Header */
+.top-header {
+    background: #ffffff;
+}
+
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-item.center {
+    flex: 1;
+}
+
+.logo-img {
+    max-height: 100px;
+    width: auto;
+    object-fit: contain;
+}
+
+.trip-logo {
+    max-height: 130px;
+}
+
+.gju-logo {
+    max-height: 130px;
+}
+
+.boj-logo {
+    max-height: 130px;
+}
+
+.reg-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+.form-title {
+    font-size: 56px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.form-subtitle {
+    font-size: 16px;
+    color: #999;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.registration-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+}
+
+.member-section {
+    background: #f5f5f5;
+    padding: 50px 60px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    width: 100%;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 20px;
+    align-items: center;
+}
+
+.form-row.full-width {
+    grid-template-columns: 200px 1fr;
+    align-items: flex-start;
+}
+
+.form-label {
+    text-align: left;
+    font-size: 16px;
+    color: #000;
+    font-weight: 500;
+}
+
+.form-row input,
+.form-row select,
+.form-row textarea {
+    padding: 14px 18px;
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+    font-size: 15px;
+    background: #ffffff;
+    font-family: inherit;
+    transition: all 0.3s;
+    width: 100%;
+}
+
+.form-row input:focus,
+.form-row select:focus,
+.form-row textarea:focus {
+    outline: none;
+    border-color: #2196F3;
+    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+}
+
+.form-row input::placeholder,
+.form-row textarea::placeholder {
+    color: #bbb;
+}
+
+
+.form-row textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-row input.error,
+.form-row select.error,
+.form-row textarea.error {
+    border-color: #ff4757;
+}
+
+.select-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.select-wrapper::after {
+    content: '';
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #666;
+    pointer-events: none;
+}
+
+.form-row select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    padding-right: 45px;
+}
+
+.form-row select option {
+    padding: 10px;
+}
+
+/* File Upload Styles */
+.file-upload-wrapper {
+    width: 100%;
+}
+
+.file-drop-area {
+    border: 2px dashed #d0d0d0;
+    border-radius: 8px;
+    padding: 40px 20px;
+    text-align: center;
+    background: #ffffff;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.file-drop-area.drag-over {
+    border-color: #2196F3;
+    background: #f0f7ff;
+}
+
+.file-drop-area.error {
+    border-color: #ff4757;
+    background: #fff5f5;
+}
+
+.upload-icon {
+    color: #999;
+    margin-bottom: 15px;
+}
+
+.file-message {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.browse-link {
+    color: #2196F3;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.browse-link:hover {
+    text-decoration: underline;
+}
+
+.file-info {
+    font-size: 13px;
+    color: #999;
+}
+
+.file-preview-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.file-preview {
+    border: 1px solid #d0d0d0;
+    border-radius: 8px;
+    padding: 15px 20px;
+    background: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.file-details {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.file-icon {
+    color: #2196F3;
+    flex-shrink: 0;
+}
+
+.file-info-text {
+    text-align: left;
+}
+
+.file-name {
+    font-size: 14px;
+    color: #000;
+    font-weight: 500;
+    margin-bottom: 4px;
+    word-break: break-all;
+}
+
+.file-size {
+    font-size: 12px;
+    color: #999;
+}
+
+.remove-file {
+    background: #ff4757;
+    border: none;
+    border-radius: 4px;
+    padding: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.remove-file:hover {
+    background: #e84046;
+    transform: scale(1.1);
+}
+
+.remove-file svg {
+    color: white;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 16px;
+    background: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 20px;
+}
+
+.btn-submit:hover {
+    background: #1976D2;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3);
+}
+
+.btn-submit:active {
+    transform: translateY(0);
+}
+
+.btn-submit:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Footer */
+.footer {
+    background: #ffffff;
+    padding: 5px;
+    text-align: center;
+    margin-top: auto;
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.xceed-brand {
+    display: inline-block;
+}
+
+.xceed-logo {
+    max-height: 100px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Focus Solutions Footer */
+.focus-footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-top: 1px solid #e0e0e0;
+    margin-top: 20px;
+}
+
+.focus-logo {
+    height: 30px;
+    width: auto;
+    padding-left: 10px;
+}
+
+.focus-copyright {
+    margin: 0;
+    padding-right: 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+.focus-link {
+    color: #2196F3;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.focus-link:hover {
+    color: #1976D2;
+    text-decoration: underline;
+}
+
+.web-footer {
+    padding: 0px;
+    min-height: 0px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .logo-img {
+        max-height: 70px;
+    }
+    
+    .trip-logo {
+        max-height: 65px;
+    }
+    
+    .gju-logo {
+        max-height: 85px;
+    }
+    
+    .boj-logo {
+        max-height: 70px;
+    }
+    
+    .reg-container {
+        padding: 40px 20px;
+    }
+    
+    .form-title {
+        font-size: 42px;
+    }
+    
+    .form-subtitle {
+        font-size: 16px;
+    }
+    
+    .member-section {
+        padding: 35px 25px;
+    }
+    
+    .form-row,
+    .form-row.full-width {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .form-label {
+        text-align: left;
+        font-size: 16px;
+    }
+    
+    .form-row input,
+    .form-row select,
+    .form-row textarea {
+        padding: 14px 18px;
+        font-size: 15px;
+    }
+    
+    .form-row textarea {
+        min-height: 140px;
+    }
+    
+    .xceed-logo {
+        max-height: 60px;
+    }
+    
+    .focus-footer {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .focus-logo,
+    .focus-copyright {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    
+    .focus-copyright {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-title {
+        font-size: 36px;
+    }
+    
+    .member-section {
+        padding: 30px 20px;
+    }
+    
+    .form-row input,
+    .form-row select,
+    .form-row textarea {
+        padding: 14px 18px;
+        font-size: 15px;
+    }
+    
+    .btn-submit {
+        padding: 16px;
+        font-size: 16px;
+    }
+    
+    .file-drop-area {
+        padding: 30px 15px;
+    }
+    
+    .xceed-logo {
+        max-height: 50px;
+    }
+}
+</style>
+
+<script>
+// Hackathon registration handling - aligned with the current DocType
+// Current DocType fields used here:
+// student_name, university_id, major, solution_name, student_email,
+// academic_year, solution_category, the_problem, solution
+
+let selectedFiles = [];   // New files selected in this visit: { id, file }
+let existingFiles = [];   // Already uploaded files: { id, file_url, file_name, file_size }
+let existingRegistrationName = sessionStorage.getItem('hackathon_registration_name') || '';
+
+const MAX_FILES = 3;
+const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB per file
+const ALLOWED_EXTENSIONS = ['.ppt', '.pptx', '.pdf', '.mp4', '.avi', '.mov', '.wmv', '.mkv'];
+
+const fileDropArea = document.getElementById('fileDropArea');
+const fileInput = document.getElementById('fileInput');
+const filePreviewList = document.getElementById('filePreviewList');
+
+function showMessage(titleText, indicator, messageHtml) {
+    frappe.msgprint({
+        title: `<div style="display: flex; align-items: center; gap: 10px;"><span>${titleText}</span></div>`,
+        indicator: indicator,
+        message: messageHtml
+    });
+}
+
+function getStudentEmailFromSession() {
+    return (sessionStorage.getItem('student_email_address') || '').trim().toLowerCase();
+}
+
+function isLoggedInForHackathon() {
+    return sessionStorage.getItem('hackathon_login_verified') === '1'
+        && sessionStorage.getItem('personal_data_consent') === 'accepted'
+        && !!getStudentEmailFromSession();
+}
+
+function redirectToLogin() {
+    window.location.href = '/hackathon/login';
+}
+
+window.addEventListener('load', function() {
+    if (!isLoggedInForHackathon()) {
+        showMessage('Login Required', 'red', `
+            <div style="padding: 15px; background: #fff5f5; border-left: 4px solid #ff4757; border-radius: 4px;">
+                <p style="margin: 0; color: #333; font-size: 14px;">Please login first to continue your application.</p>
+            </div>
+        `);
+        setTimeout(redirectToLogin, 1200);
+        return;
+    }
+
+    loadExistingRegistration(getStudentEmailFromSession());
+});
+
+function loadExistingRegistration(studentEmail) {
+    frappe.call({
+        method: 'hackathon_app.hackathon_app.doctype.hackathon_registration_form.hackathon_registration_form.check_existing_registration',
+        args: {
+            email: studentEmail
+        },
+        callback: function(response) {
+            const result = response.message || {};
+
+            if (!result.exists) {
+                existingFiles = [];
+                renderFilePreviewList();
+                return;
+            }
+
+            existingRegistrationName = result.registration_id || '';
+            if (existingRegistrationName) {
+                sessionStorage.setItem('hackathon_registration_name', existingRegistrationName);
+            }
+
+            populateRegistrationFields(result);
+            existingFiles = parseExistingFiles(result);
+            renderFilePreviewList();
+        },
+        error: function(error) {
+            console.warn('Could not load existing registration:', error);
+            renderFilePreviewList();
+        }
+    });
+}
+
+function populateRegistrationFields(doc) {
+    if (!doc) return;
+
+    setValueByName('student_name', doc.student_name);
+    setValueByName('academic_year', doc.academic_year);
+    setValueByName('university_id', doc.university_id);
+    setValueByName('major', doc.major);
+    setValueByName('solution_name', doc.solution_name);
+    setValueByName('solution_category', doc.solution_category);
+    setValueByName('the_problem', doc.the_problem);
+    setValueByName('solution', doc.solution);
+}
+
+function setValueByName(name, value) {
+    const el = document.querySelector(`[name="${name}"]`);
+    if (el && value !== undefined && value !== null) {
+        el.value = value;
+    }
+}
+
+function parseExistingFiles(doc) {
+    const attachments = Array.isArray(doc.attachments) ? doc.attachments : [];
+
+    return attachments
+        .map((item, index) => ({
+            id: item.id || item.name || `existing-${index}-${Date.now()}`,
+            file_url: item.file_url || item.url || item.attachment || '',
+            file_name: item.file_name || getFileNameFromUrl(item.file_url || item.url || item.attachment || ''),
+            file_size: item.file_size || item.size || ''
+        }))
+        .filter(file => file.file_url)
+        .slice(0, MAX_FILES);
+}
+
+function getFileNameFromUrl(url) {
+    if (!url) return 'Uploaded file';
+    return decodeURIComponent(url.split('/').pop().split('?')[0]) || 'Uploaded file';
+}
+
+fileDropArea.addEventListener('click', () => fileInput.click());
+
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+    fileDropArea.addEventListener(eventName, preventDefaults, false);
+});
+
+function preventDefaults(e) {
+    e.preventDefault();
+    e.stopPropagation();
+}
+
+['dragenter', 'dragover'].forEach(eventName => {
+    fileDropArea.addEventListener(eventName, () => {
+        fileDropArea.classList.add('drag-over');
+    });
+});
+
+['dragleave', 'drop'].forEach(eventName => {
+    fileDropArea.addEventListener(eventName, () => {
+        fileDropArea.classList.remove('drag-over');
+    });
+});
+
+fileDropArea.addEventListener('drop', (e) => {
+    handleFiles(e.dataTransfer.files);
+});
+
+fileInput.addEventListener('change', (e) => {
+    handleFiles(e.target.files);
+    fileInput.value = '';
+});
+
+function handleFiles(fileList) {
+    if (!fileList || fileList.length === 0) return;
+
+    fileDropArea.classList.remove('error');
+
+    const incomingFiles = Array.from(fileList);
+    const currentCount = selectedFiles.length + existingFiles.length;
+
+    if (currentCount >= MAX_FILES) {
+        fileLimitMessage();
+        return;
+    }
+
+    const availableSlots = MAX_FILES - currentCount;
+    const filesToProcess = incomingFiles.slice(0, availableSlots);
+
+    if (incomingFiles.length > availableSlots) {
+        fileLimitMessage();
+    }
+
+    filesToProcess.forEach(file => addFile(file));
+    renderFilePreviewList();
+}
+
+function fileLimitMessage() {
+    fileDropArea.classList.add('error');
+    showMessage('Maximum Files Reached', 'red', `
+        <div style="padding: 15px; background: #fff5f5; border-left: 4px solid #ff4757; border-radius: 4px;">
+            <p style="margin: 0; color: #333; font-size: 14px;">You can upload a maximum of 3 files. Remove an existing file before adding another one.</p>
+        </div>
+    `);
+}
+
+function addFile(file) {
+    const validation = validateFile(file);
+    if (!validation.isValid) {
+        fileDropArea.classList.add('error');
+        showMessage(validation.title, 'red', validation.message);
+        return;
+    }
+
+    const duplicateNew = selectedFiles.some(item => item.file.name === file.name && item.file.size === file.size);
+    const duplicateExisting = existingFiles.some(item => item.file_name === file.name);
+
+    if (duplicateNew || duplicateExisting) {
+        showMessage('Duplicate File', 'orange', `
+            <div style="padding: 15px; background: #fff8e1; border-left: 4px solid #ff9800; border-radius: 4px;">
+                <p style="margin: 0; color: #333; font-size: 14px;">This file already exists in your upload list.</p>
+            </div>
+        `);
+        return;
+    }
+
+    selectedFiles.push({
+        id: `new-${Date.now()}-${Math.random().toString(36).slice(2)}`,
+        file: file
+    });
+}
+
+function validateFile(file) {
+    if (file.size > MAX_FILE_SIZE) {
+        return {
+            isValid: false,
+            title: 'File Too Large',
+            message: `
+                <div style="padding: 15px; background: #fff5f5; border-left: 4px solid #ff4757; border-radius: 4px;">
+                    <p style="margin: 0; color: #333; font-size: 14px;">Each file must be less than 10MB. Your file is ${(file.size / (1024 * 1024)).toFixed(2)}MB</p>
+                </div>
+            `
+        };
+    }
+
+    const fileExtension = '.' + file.name.split('.').pop().toLowerCase();
+    if (!ALLOWED_EXTENSIONS.includes(fileExtension)) {
+        return {
+            isValid: false,
+            title: 'Invalid File Type',
+            message: `
+                <div style="padding: 15px; background: #fff5f5; border-left: 4px solid #ff4757; border-radius: 4px;">
+                    <p style="margin: 0; color: #333; font-size: 14px;">Please upload PPT, PPTX, PDF, or video files (MP4, AVI, MOV, WMV, MKV)</p>
+                </div>
+            `
+        };
+    }
+
+    return { isValid: true };
+}
+
+function renderFilePreviewList() {
+    filePreviewList.innerHTML = '';
+
+    const allFiles = [
+        ...existingFiles.map(file => ({ type: 'existing', ...file })),
+        ...selectedFiles.map(item => ({
+            type: 'new',
+            id: item.id,
+            file_name: item.file.name,
+            file_size: item.file.size
+        }))
+    ];
+
+    allFiles.forEach(file => {
+        const preview = document.createElement('div');
+        preview.className = 'file-preview';
+        preview.innerHTML = `
+            <div class="file-details">
+                <svg class="file-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                    <polyline points="13 2 13 9 20 9"></polyline>
+                </svg>
+                <div class="file-info-text">
+                    <p class="file-name">${escapeHtml(file.file_name)}</p>
+                    <p class="file-size">${file.type === 'existing' ? 'Already uploaded' : formatFileSize(file.file_size)}</p>
+                </div>
+            </div>
+            <button type="button" class="remove-file" data-file-type="${file.type}" data-file-id="${file.id}" title="Remove file">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        `;
+        filePreviewList.appendChild(preview);
+    });
+
+    document.querySelectorAll('.remove-file').forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.stopPropagation();
+            removeFile(this.dataset.fileType, this.dataset.fileId);
+        });
+    });
+
+    fileDropArea.style.display = (selectedFiles.length + existingFiles.length < MAX_FILES) ? 'block' : 'none';
+
+    if (selectedFiles.length + existingFiles.length > 0) {
+        fileDropArea.classList.remove('error');
+    }
+}
+
+function removeFile(type, id) {
+    if (type === 'existing') {
+        existingFiles = existingFiles.filter(file => file.id !== id);
+    } else {
+        selectedFiles = selectedFiles.filter(item => item.id !== id);
+    }
+
+    renderFilePreviewList();
+}
+
+function escapeHtml(value) {
+    return String(value || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+}
+
+function formatFileSize(bytes) {
+    if (!bytes) return '';
+    if (bytes === 0) return '0 Bytes';
+    const k = 1024;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
+}
+
+document.getElementById('registrationForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    if (!isLoggedInForHackathon()) {
+        showMessage('Session Expired', 'red', `
+            <div style="padding: 15px; background: #fff5f5; border-left: 4px solid #ff4757; border-radius: 4px;">
+                <p style="margin: 0; color: #333; font-size: 14px;">Please login again.</p>
+            </div>
+        `);
+        setTimeout(redirectToLogin, 1200);
+        return;
+    }
+
+    const formData = new FormData(this);
+    const data = {};
+
+    for (let [key, value] of formData.entries()) {
+        if (key !== 'attachment') {
+            data[key] = value;
+        }
+    }
+
+    data.student_email = getStudentEmailFromSession();
+
+    if (existingRegistrationName) {
+        data.name = existingRegistrationName;
+    }
+
+    let isValid = true;
+    const inputs = this.querySelectorAll('input[required]:not([type="file"]), select[required], textarea[required]');
+
+    inputs.forEach(input => {
+        if (!input.value.trim()) {
+            isValid = false;
+            input.classList.add('error');
+        } else {
+            input.classList.remove('error');
+        }
+    });
+
+    if (selectedFiles.length + existingFiles.length === 0) {
+        isValid = false;
+        fileDropArea.classList.add('error');
+        showMessage('File Required', 'red', `
+            <div style="padding: 15px; background: #fff5f5; border-left: 4px solid #ff4757; border-radius: 4px;">
+                <p style="margin: 0 0 10px 0; color: #333; font-size: 14px; font-weight: 500;">At least one file attachment is required.</p>
+                <p style="margin: 0; color: #666; font-size: 13px; line-height: 1.5;">You can upload up to 3 files.</p>
+            </div>
+        `);
+        return;
+    }
+
+    if (selectedFiles.length + existingFiles.length > MAX_FILES) {
+        isValid = false;
+        fileLimitMessage();
+        return;
+    }
+
+    if (!isValid) {
+        showMessage('Validation Error', 'red', `
+            <div style="padding: 15px; background: #fff5f5; border-left: 4px solid #ff4757; border-radius: 4px;">
+                <p style="margin: 0; color: #333; font-size: 14px;">Please fill in all required fields.</p>
+            </div>
+        `);
+        return;
+    }
+
+    const btn = document.querySelector('.btn-submit');
+    const originalText = btn.textContent;
+    btn.textContent = selectedFiles.length > 0 ? 'Uploading...' : 'Updating...';
+    btn.disabled = true;
+
+    uploadFilesAndSubmit(data, btn, originalText);
+});
+
+function uploadFilesAndSubmit(data, btn, originalText) {
+    const uploadPromises = selectedFiles.map(item => uploadSingleFile(item.file));
+
+    Promise.all(uploadPromises)
+        .then(uploadedFiles => {
+            const finalFiles = [
+                ...existingFiles.map(file => ({
+                    file_url: file.file_url,
+                    file_name: file.file_name,
+                    file_size: file.file_size || ''
+                })),
+                ...uploadedFiles
+            ].slice(0, MAX_FILES);
+
+            data.attachments = JSON.stringify(finalFiles);
+
+            submitRegistration(data, btn, originalText);
+        })
+        .catch(error => {
+            console.error('Upload error:', error);
+            btn.textContent = originalText;
+            btn.disabled = false;
+            showMessage('Upload Failed', 'red', `
+                <div style="padding: 15px; background: #fff5f5; border-left: 4px solid #ff4757; border-radius: 4px;">
+                    <p style="margin: 0; color: #333; font-size: 14px;">Failed to upload one or more files. Please try again.</p>
+                </div>
+            `);
+        });
+}
+
+function uploadSingleFile(file) {
+    const fileData = new FormData();
+    fileData.append('file', file);
+    fileData.append('is_private', 0);
+    fileData.append('folder', 'Home/Attachments');
+
+    return fetch('/api/method/upload_file', {
+        method: 'POST',
+        body: fileData,
+        headers: {
+            'X-Frappe-CSRF-Token': frappe.csrf_token
+        }
+    })
+    .then(response => response.json())
+    .then(result => {
+        if (result.message) {
+            return {
+                file_url: result.message.file_url,
+                file_name: result.message.file_name,
+                file_size: file.size
+            };
+        }
+        throw new Error('File upload failed');
+    });
+}
+
+function submitRegistration(data, btn, originalText) {
+    btn.textContent = 'Submitting...';
+
+    frappe.call({
+        method: 'hackathon_app.hackathon_app.doctype.hackathon_registration_form.hackathon_registration_form.submit_registration_form',
+        args: {
+            data: JSON.stringify(data)
+        },
+        callback: function(response) {
+            if (response.message && response.message.success) {
+                showMessage('Success!', 'green', `
+                    <div style="padding: 15px; background: #f0f9f4; border-left: 4px solid #4CAF50; border-radius: 4px;">
+                        <p style="margin: 0; color: #333; font-size: 14px;">${response.message.message}</p>
+                    </div>
+                `);
+
+                sessionStorage.setItem('hackathon_registration_name', response.message.registration_id || existingRegistrationName || '');
+                sessionStorage.setItem('hackathon_registration_submitted', '1');
+
+                setTimeout(() => {
+                    window.location.href = '/hackathon/goodbye';
+                }, 1500);
+            } else {
+                btn.textContent = originalText;
+                btn.disabled = false;
+
+                showMessage('Submission Failed', 'red', `
+                    <div style="padding: 15px; background: #fff5f5; border-left: 4px solid #ff4757; border-radius: 4px;">
+                        <p style="margin: 0; color: #333; font-size: 14px;">${response.message ? response.message.message : 'An error occurred'}</p>
+                    </div>
+                `);
+            }
+        },
+        error: function(error) {
+            console.error('Submission error:', error);
+            btn.textContent = originalText;
+            btn.disabled = false;
+
+            showMessage('Error', 'red', `
+                <div style="padding: 15px; background: #fff5f5; border-left: 4px solid #ff4757; border-radius: 4px;">
+                    <p style="margin: 0; color: #333; font-size: 14px;">An error occurred while submitting your registration. Please try again.</p>
+                </div>
+            `);
+        }
+    });
+}
+</script>
+{% endblock %}

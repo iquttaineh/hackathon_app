@@ -1,0 +1,112 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-01-06 14:09:36.581441",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "student_name",
+  "university_id",
+  "major",
+  "solution_name",
+  "column_break_enxy",
+  "student_email",
+  "academic_year",
+  "solution_category",
+  "section_break_ktfb",
+  "the_problem",
+  "solution"
+ ],
+ "fields": [
+  {
+   "fieldname": "student_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Student Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "university_id",
+   "fieldtype": "Data",
+   "label": "University ID",
+   "reqd": 1
+  },
+  {
+   "fieldname": "solution_name",
+   "fieldtype": "Data",
+   "label": "Solution Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_enxy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "academic_year",
+   "fieldtype": "Data",
+   "label": "Academic Year",
+   "reqd": 1
+  },
+  {
+   "fieldname": "major",
+   "fieldtype": "Data",
+   "label": "Major",
+   "reqd": 1
+  },
+  {
+   "fieldname": "solution_category",
+   "fieldtype": "Select",
+   "label": "Solution Category",
+   "options": "\nHuman-Centered Branch & Digital Customer Experience\nAI for Smarter Banking Experiences",
+   "reqd": 1
+  },
+  {
+   "fieldname": "the_problem",
+   "fieldtype": "Small Text",
+   "label": "The Problem",
+   "reqd": 1
+  },
+  {
+   "fieldname": "student_email",
+   "fieldtype": "Data",
+   "label": "Student Email",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_ktfb",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "solution",
+   "fieldtype": "Small Text",
+   "label": "Solution",
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-05-03 12:29:31.844881",
+ "modified_by": "Administrator",
+ "module": "Hackathon App",
+ "name": "Hackathon Registration Form",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
